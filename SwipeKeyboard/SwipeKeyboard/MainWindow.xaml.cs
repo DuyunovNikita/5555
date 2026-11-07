@@ -95,11 +95,19 @@ public partial class MainWindow : Window
         if (!_swiping) return;
         AddTrace(sender); _swiping = false;
         if (sender is Button b) b.ReleaseMouseCapture();
-        var word = string.Concat(_trace.Distinct());
+        var word = string.Concat(_trace);
         if (word.Length > 1) InsertText(word.ToLowerInvariant() + " ");
         else if (_trace.Count > 0) InsertText(_trace[0]);
         _trace.Clear(); e.Handled = true;
     }
+    private void Window_MouseMove(object sender, MouseEventArgs e)
+    {
+        if (!_swiping || e.LeftButton != MouseButtonState.Pressed) return;
+        var hit = KeyboardGrid.InputHitTest(e.GetPosition(KeyboardGrid)) as DependencyObject;
+        while (hit != null && hit is not Button) hit = System.Windows.Media.VisualTreeHelper.GetParent(hit);
+        if (hit is Button keyButton) AddTrace(keyButton);
+    }
+
     private void AddTrace(object sender)
     {
         if (sender is Button b && b.Tag is string s && (_trace.Count == 0 || _trace[^1] != s)) _trace.Add(s);
