@@ -3,7 +3,7 @@
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
  Title="Swipe Keyboard" Width="760" Height="310" MinWidth="520" MinHeight="230"
  WindowStyle="None" ResizeMode="CanResizeWithGrip" Topmost="True"
- Background="#202124" Foreground="White" ShowInTaskbar="True">
+ Background="#202124" Foreground="White" ShowInTaskbar="True" ShowActivated="False">
  <Border BorderBrush="#555" BorderThickness="1" CornerRadius="10" Padding="8">
   <DockPanel>
    <Grid DockPanel.Dock="Top" Height="34" MouseLeftButtonDown="Header_MouseLeftButtonDown">
