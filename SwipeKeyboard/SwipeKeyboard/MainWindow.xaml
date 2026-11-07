@@ -1,0 +1,19 @@
+<Window x:Class="SwipeKeyboard.MainWindow"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+ Title="Swipe Keyboard" Width="760" Height="310" MinWidth="520" MinHeight="230"
+ WindowStyle="None" ResizeMode="CanResizeWithGrip" Topmost="True"
+ Background="#202124" Foreground="White" ShowInTaskbar="True">
+ <Border BorderBrush="#555" BorderThickness="1" CornerRadius="10" Padding="8">
+  <DockPanel>
+   <Grid DockPanel.Dock="Top" Height="34" MouseLeftButtonDown="Header_MouseLeftButtonDown">
+    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+    <TextBlock Text="Swipe Keyboard" VerticalAlignment="Center" FontWeight="SemiBold"/>
+    <Button Grid.Column="1" Content="RU / EN" Click="Language_Click" Margin="4,0" Padding="10,2"/>
+    <Button Grid.Column="2" Content="☼" Click="Theme_Click" Padding="10,2"/>
+   </Grid>
+   <TextBlock x:Name="SuggestionText" DockPanel.Dock="Top" Height="28" Text="Нажимайте клавиши или проведите мышью по буквам" Foreground="#B8C5D8" VerticalAlignment="Center"/>
+   <UniformGrid x:Name="KeyboardGrid" Rows="4" Margin="0,4,0,0"/>
+  </DockPanel>
+ </Border>
+</Window>
